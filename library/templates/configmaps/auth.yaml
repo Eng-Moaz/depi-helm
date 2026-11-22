@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth
+data:
+  APP_ENV: {{ .Values.environment | quote }}
+  DB_HOST: library-db
+  DB_PASSWORD: {{ .Values.dbPassword | quote }}
+  JWT_SECRET: {{ .Values.jwtSecret | quote }}

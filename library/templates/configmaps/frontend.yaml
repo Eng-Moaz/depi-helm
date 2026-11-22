@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend
+data:
+  default.conf: |
+    server {
+        listen 80;
+        root /usr/share/nginx/html;
+        index index.html;
+
+        location /api/auth/ {
+            proxy_pass http://auth:5000/;
+        }
+
+        location /api/ {
+            proxy_pass http://catalog:5000/;
+        }
+    }

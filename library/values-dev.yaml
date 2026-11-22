@@ -1,0 +1,16 @@
+environment: dev
+dbPassword: dev-password
+jwtSecret: dev-jwt
+
+auth:
+  replicas: 1
+
+catalog:
+  replicas: 1
+
+frontend:
+  replicas: 1
+  nodePort: 30081     
+
+postgres:
+  replicas: 1

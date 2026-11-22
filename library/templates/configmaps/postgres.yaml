@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: library-db
+data:
+  POSTGRES_DB: library
+  POSTGRES_USER: library
+  POSTGRES_PASSWORD: {{ .Values.dbPassword | quote }}

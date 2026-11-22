@@ -1,0 +1,25 @@
+environment: dev
+
+dbPassword: library-pass          
+jwtSecret: jwt-dev
+
+auth:
+  replicas: 1
+  image: ghcr.io/eng-moaz/library-auth
+  tag: latest
+
+catalog:
+  replicas: 1
+  image: ghcr.io/eng-moaz/library-catalog
+  tag: latest
+
+frontend:
+  replicas: 1
+  image: ghcr.io/eng-moaz/library-frontend
+  tag: latest
+  nodePort: 30080
+
+postgres:
+  replicas: 1     
+  image: postgres
+  tag: 16-alpine

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog
+spec:
+  replicas: {{ .Values.catalog.replicas }}
+  selector:
+    matchLabels:
+      app: catalog
+  template:
+    metadata:
+      labels:
+        app: catalog
+    spec:
+      containers:
+        - name: catalog
+          image: {{ .Values.catalog.image }}:{{ .Values.catalog.tag }}
+          envFrom:
+            - configMapRef:
+                name: catalog
+          ports:
+            - containerPort: 5000
